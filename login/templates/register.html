@@ -1,0 +1,86 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registration Page</title>
+    <style>
+        input[type=text] {
+          width: 60%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+        input[type=email] {
+          width: 60%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+
+        input[type=password] {
+          width: 60%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+
+        button {
+          width: 30%;
+          background-color: #4CAF50;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+
+        button:hover {
+          background-color: #45a049;
+        }
+        form{
+            text-align:center;
+            border: 1px solid black;
+            padding: 14px 20px;
+            width: 60%;
+        }
+    </style>
+</head>
+<body>
+
+
+<form action="register" method="post">
+    {% csrf_token %}
+    <label>Email: </label>
+    <input type="email" name="email" placeholder="Email"><br>
+    <label>Firstname: </label>
+    <input type="text" name="firstname" placeholder="firstname"><br>
+    <label>Lastname: </label>
+    <input type="text" name="lastname" placeholder="lastname"><br>
+    <label>Username: </label>
+    <input type="text" name="username" placeholder="username"><br>
+    <label>Password: </label>
+    <input type="password"  name="password" placeholder="password"><br>
+    <label>Confirm Password: </label>
+    <input type="password" name="confirm_password" placeholder="confirm password"><br>
+    <button>Register</button>
+</form>
+{% for message in messages %}
+{{messages}}
+{% endfor %}
+
+</body>
+</html>

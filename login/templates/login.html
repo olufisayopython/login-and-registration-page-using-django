@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <style>
+        input[type=text] {
+          width: 60%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+        input[type=email] {
+          width: 60%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+
+        input[type=password] {
+          width: 60%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+
+        button {
+          width: 30%;
+          background-color: #4CAF50;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+
+        button:hover {
+          background-color: #45a049;
+        }
+        form{
+            text-align:center;
+            border: 1px solid black;
+            padding: 14px 20px;
+            width: 60%;
+        }
+    </style>
+</head>
+<body>
+{% if User.is_authenticated %}
+    <p>Welcome</p>
+    <p>Hello{{User.firstname}}</p>
+    {% else %}
+    <p>User is not logged in</p>
+    {% endif %}
+    <form action="login" method="post">
+    {% csrf_token %}
+        <label>username: </label>
+        <input type="text" name="username" placeholder="username"><br>
+        <label>Password: </label>
+        <input type="password"  name="password" placeholder="password"><br>
+        <button>Login</button>
+    </form>
+</body>
+</html>
